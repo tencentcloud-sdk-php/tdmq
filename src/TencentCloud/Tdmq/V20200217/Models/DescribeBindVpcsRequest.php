@@ -18,10 +18,8 @@ namespace TencentCloud\Tdmq\V20200217\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeEnvironments请求参数结构体
+ * DescribeBindVpcs请求参数结构体
  *
- * @method string getEnvironmentId() 获取命名空间名称，模糊搜索。
- * @method void setEnvironmentId(string $EnvironmentId) 设置命名空间名称，模糊搜索。
  * @method integer getOffset() 获取起始下标，不填默认为0。
  * @method void setOffset(integer $Offset) 设置起始下标，不填默认为0。
  * @method integer getLimit() 获取返回数量，不填则默认为10，最大值为20。
@@ -29,13 +27,8 @@ use TencentCloud\Common\AbstractModel;
  * @method string getClusterId() 获取Pulsar 集群的ID
  * @method void setClusterId(string $ClusterId) 设置Pulsar 集群的ID
  */
-class DescribeEnvironmentsRequest extends AbstractModel
+class DescribeBindVpcsRequest extends AbstractModel
 {
-    /**
-     * @var string 命名空间名称，模糊搜索。
-     */
-    public $EnvironmentId;
-
     /**
      * @var integer 起始下标，不填默认为0。
      */
@@ -52,7 +45,6 @@ class DescribeEnvironmentsRequest extends AbstractModel
     public $ClusterId;
 
     /**
-     * @param string $EnvironmentId 命名空间名称，模糊搜索。
      * @param integer $Offset 起始下标，不填默认为0。
      * @param integer $Limit 返回数量，不填则默认为10，最大值为20。
      * @param string $ClusterId Pulsar 集群的ID
@@ -70,10 +62,6 @@ class DescribeEnvironmentsRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("EnvironmentId",$param) and $param["EnvironmentId"] !== null) {
-            $this->EnvironmentId = $param["EnvironmentId"];
-        }
-
         if (array_key_exists("Offset",$param) and $param["Offset"] !== null) {
             $this->Offset = $param["Offset"];
         }

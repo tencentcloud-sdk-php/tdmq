@@ -18,26 +18,19 @@ namespace TencentCloud\Tdmq\V20200217\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeEnvironments返回参数结构体
+ * DeleteCluster返回参数结构体
  *
- * @method integer getTotalCount() 获取命名空间记录数。
- * @method void setTotalCount(integer $TotalCount) 设置命名空间记录数。
- * @method array getEnvironmentSet() 获取命名空间集合数组。
- * @method void setEnvironmentSet(array $EnvironmentSet) 设置命名空间集合数组。
+ * @method string getClusterId() 获取集群的ID
+ * @method void setClusterId(string $ClusterId) 设置集群的ID
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeEnvironmentsResponse extends AbstractModel
+class DeleteClusterResponse extends AbstractModel
 {
     /**
-     * @var integer 命名空间记录数。
+     * @var string 集群的ID
      */
-    public $TotalCount;
-
-    /**
-     * @var array 命名空间集合数组。
-     */
-    public $EnvironmentSet;
+    public $ClusterId;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +38,7 @@ class DescribeEnvironmentsResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $TotalCount 命名空间记录数。
-     * @param array $EnvironmentSet 命名空间集合数组。
+     * @param string $ClusterId 集群的ID
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,17 +54,8 @@ class DescribeEnvironmentsResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
-            $this->TotalCount = $param["TotalCount"];
-        }
-
-        if (array_key_exists("EnvironmentSet",$param) and $param["EnvironmentSet"] !== null) {
-            $this->EnvironmentSet = [];
-            foreach ($param["EnvironmentSet"] as $key => $value){
-                $obj = new Environment();
-                $obj->deserialize($value);
-                array_push($this->EnvironmentSet, $obj);
-            }
+        if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
+            $this->ClusterId = $param["ClusterId"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

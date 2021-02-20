@@ -28,6 +28,8 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRemark(string $Remark) 设置说明，128个字符以内。
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getNamespaceId() 获取命名空间ID
+ * @method void setNamespaceId(string $NamespaceId) 设置命名空间ID
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
@@ -50,6 +52,11 @@ class CreateEnvironmentResponse extends AbstractModel
     public $Remark;
 
     /**
+     * @var string 命名空间ID
+     */
+    public $NamespaceId;
+
+    /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
@@ -59,6 +66,7 @@ class CreateEnvironmentResponse extends AbstractModel
      * @param integer $MsgTTL 未消费消息过期时间，单位：秒。
      * @param string $Remark 说明，128个字符以内。
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $NamespaceId 命名空间ID
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -84,6 +92,10 @@ class CreateEnvironmentResponse extends AbstractModel
 
         if (array_key_exists("Remark",$param) and $param["Remark"] !== null) {
             $this->Remark = $param["Remark"];
+        }
+
+        if (array_key_exists("NamespaceId",$param) and $param["NamespaceId"] !== null) {
+            $this->NamespaceId = $param["NamespaceId"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

@@ -18,28 +18,20 @@ namespace TencentCloud\Tdmq\V20200217\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeEnvironmentAttributes请求参数结构体
+ * 用户专享集群信息
  *
- * @method string getEnvironmentId() 获取环境（命名空间）名称。
- * @method void setEnvironmentId(string $EnvironmentId) 设置环境（命名空间）名称。
- * @method string getClusterId() 获取Pulsar 集群的ID
- * @method void setClusterId(string $ClusterId) 设置Pulsar 集群的ID
+ * @method string getClusterName() 获取物理集群的名称
+ * @method void setClusterName(string $ClusterName) 设置物理集群的名称
  */
-class DescribeEnvironmentAttributesRequest extends AbstractModel
+class BindCluster extends AbstractModel
 {
     /**
-     * @var string 环境（命名空间）名称。
+     * @var string 物理集群的名称
      */
-    public $EnvironmentId;
+    public $ClusterName;
 
     /**
-     * @var string Pulsar 集群的ID
-     */
-    public $ClusterId;
-
-    /**
-     * @param string $EnvironmentId 环境（命名空间）名称。
-     * @param string $ClusterId Pulsar 集群的ID
+     * @param string $ClusterName 物理集群的名称
      */
     function __construct()
     {
@@ -54,12 +46,8 @@ class DescribeEnvironmentAttributesRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("EnvironmentId",$param) and $param["EnvironmentId"] !== null) {
-            $this->EnvironmentId = $param["EnvironmentId"];
-        }
-
-        if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
-            $this->ClusterId = $param["ClusterId"];
+        if (array_key_exists("ClusterName",$param) and $param["ClusterName"] !== null) {
+            $this->ClusterName = $param["ClusterName"];
         }
     }
 }

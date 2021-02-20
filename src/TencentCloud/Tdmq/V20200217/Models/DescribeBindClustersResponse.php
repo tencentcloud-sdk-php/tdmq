@@ -18,26 +18,26 @@ namespace TencentCloud\Tdmq\V20200217\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeEnvironments返回参数结构体
+ * DescribeBindClusters返回参数结构体
  *
- * @method integer getTotalCount() 获取命名空间记录数。
- * @method void setTotalCount(integer $TotalCount) 设置命名空间记录数。
- * @method array getEnvironmentSet() 获取命名空间集合数组。
- * @method void setEnvironmentSet(array $EnvironmentSet) 设置命名空间集合数组。
+ * @method integer getTotalCount() 获取专享集群的数量
+ * @method void setTotalCount(integer $TotalCount) 设置专享集群的数量
+ * @method array getClusterSet() 获取专享集群的列表
+ * @method void setClusterSet(array $ClusterSet) 设置专享集群的列表
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeEnvironmentsResponse extends AbstractModel
+class DescribeBindClustersResponse extends AbstractModel
 {
     /**
-     * @var integer 命名空间记录数。
+     * @var integer 专享集群的数量
      */
     public $TotalCount;
 
     /**
-     * @var array 命名空间集合数组。
+     * @var array 专享集群的列表
      */
-    public $EnvironmentSet;
+    public $ClusterSet;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +45,8 @@ class DescribeEnvironmentsResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $TotalCount 命名空间记录数。
-     * @param array $EnvironmentSet 命名空间集合数组。
+     * @param integer $TotalCount 专享集群的数量
+     * @param array $ClusterSet 专享集群的列表
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -66,12 +66,12 @@ class DescribeEnvironmentsResponse extends AbstractModel
             $this->TotalCount = $param["TotalCount"];
         }
 
-        if (array_key_exists("EnvironmentSet",$param) and $param["EnvironmentSet"] !== null) {
-            $this->EnvironmentSet = [];
-            foreach ($param["EnvironmentSet"] as $key => $value){
-                $obj = new Environment();
+        if (array_key_exists("ClusterSet",$param) and $param["ClusterSet"] !== null) {
+            $this->ClusterSet = [];
+            foreach ($param["ClusterSet"] as $key => $value){
+                $obj = new BindCluster();
                 $obj->deserialize($value);
-                array_push($this->EnvironmentSet, $obj);
+                array_push($this->ClusterSet, $obj);
             }
         }
 

@@ -20,19 +20,21 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ResetMsgSubOffsetByTimestamp请求参数结构体
  *
- * @method string getEnvironmentId() 获取环境（命名空间）名称。
- * @method void setEnvironmentId(string $EnvironmentId) 设置环境（命名空间）名称。
+ * @method string getEnvironmentId() 获取命名空间名称。
+ * @method void setEnvironmentId(string $EnvironmentId) 设置命名空间名称。
  * @method string getTopicName() 获取主题名称。
  * @method void setTopicName(string $TopicName) 设置主题名称。
  * @method string getSubscription() 获取订阅者名称。
  * @method void setSubscription(string $Subscription) 设置订阅者名称。
  * @method integer getToTimestamp() 获取时间戳，精确到毫秒。
  * @method void setToTimestamp(integer $ToTimestamp) 设置时间戳，精确到毫秒。
+ * @method string getClusterId() 获取Pulsar 集群的ID
+ * @method void setClusterId(string $ClusterId) 设置Pulsar 集群的ID
  */
 class ResetMsgSubOffsetByTimestampRequest extends AbstractModel
 {
     /**
-     * @var string 环境（命名空间）名称。
+     * @var string 命名空间名称。
      */
     public $EnvironmentId;
 
@@ -52,10 +54,16 @@ class ResetMsgSubOffsetByTimestampRequest extends AbstractModel
     public $ToTimestamp;
 
     /**
-     * @param string $EnvironmentId 环境（命名空间）名称。
+     * @var string Pulsar 集群的ID
+     */
+    public $ClusterId;
+
+    /**
+     * @param string $EnvironmentId 命名空间名称。
      * @param string $TopicName 主题名称。
      * @param string $Subscription 订阅者名称。
      * @param integer $ToTimestamp 时间戳，精确到毫秒。
+     * @param string $ClusterId Pulsar 集群的ID
      */
     function __construct()
     {
@@ -84,6 +92,10 @@ class ResetMsgSubOffsetByTimestampRequest extends AbstractModel
 
         if (array_key_exists("ToTimestamp",$param) and $param["ToTimestamp"] !== null) {
             $this->ToTimestamp = $param["ToTimestamp"];
+        }
+
+        if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
+            $this->ClusterId = $param["ClusterId"];
         }
     }
 }

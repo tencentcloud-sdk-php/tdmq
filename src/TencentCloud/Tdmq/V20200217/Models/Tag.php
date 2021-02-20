@@ -18,28 +18,28 @@ namespace TencentCloud\Tdmq\V20200217\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeEnvironmentAttributes请求参数结构体
+ * 标签的key/value的类型
  *
- * @method string getEnvironmentId() 获取环境（命名空间）名称。
- * @method void setEnvironmentId(string $EnvironmentId) 设置环境（命名空间）名称。
- * @method string getClusterId() 获取Pulsar 集群的ID
- * @method void setClusterId(string $ClusterId) 设置Pulsar 集群的ID
+ * @method string getTagKey() 获取标签的key的值
+ * @method void setTagKey(string $TagKey) 设置标签的key的值
+ * @method string getTagValue() 获取标签的Value的值
+ * @method void setTagValue(string $TagValue) 设置标签的Value的值
  */
-class DescribeEnvironmentAttributesRequest extends AbstractModel
+class Tag extends AbstractModel
 {
     /**
-     * @var string 环境（命名空间）名称。
+     * @var string 标签的key的值
      */
-    public $EnvironmentId;
+    public $TagKey;
 
     /**
-     * @var string Pulsar 集群的ID
+     * @var string 标签的Value的值
      */
-    public $ClusterId;
+    public $TagValue;
 
     /**
-     * @param string $EnvironmentId 环境（命名空间）名称。
-     * @param string $ClusterId Pulsar 集群的ID
+     * @param string $TagKey 标签的key的值
+     * @param string $TagValue 标签的Value的值
      */
     function __construct()
     {
@@ -54,12 +54,12 @@ class DescribeEnvironmentAttributesRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("EnvironmentId",$param) and $param["EnvironmentId"] !== null) {
-            $this->EnvironmentId = $param["EnvironmentId"];
+        if (array_key_exists("TagKey",$param) and $param["TagKey"] !== null) {
+            $this->TagKey = $param["TagKey"];
         }
 
-        if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
-            $this->ClusterId = $param["ClusterId"];
+        if (array_key_exists("TagValue",$param) and $param["TagValue"] !== null) {
+            $this->TagValue = $param["TagValue"];
         }
     }
 }

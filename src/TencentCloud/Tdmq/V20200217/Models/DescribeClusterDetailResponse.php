@@ -18,26 +18,19 @@ namespace TencentCloud\Tdmq\V20200217\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeEnvironments返回参数结构体
+ * DescribeClusterDetail返回参数结构体
  *
- * @method integer getTotalCount() 获取命名空间记录数。
- * @method void setTotalCount(integer $TotalCount) 设置命名空间记录数。
- * @method array getEnvironmentSet() 获取命名空间集合数组。
- * @method void setEnvironmentSet(array $EnvironmentSet) 设置命名空间集合数组。
+ * @method Cluster getClusterSet() 获取集群的详细信息
+ * @method void setClusterSet(Cluster $ClusterSet) 设置集群的详细信息
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeEnvironmentsResponse extends AbstractModel
+class DescribeClusterDetailResponse extends AbstractModel
 {
     /**
-     * @var integer 命名空间记录数。
+     * @var Cluster 集群的详细信息
      */
-    public $TotalCount;
-
-    /**
-     * @var array 命名空间集合数组。
-     */
-    public $EnvironmentSet;
+    public $ClusterSet;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +38,7 @@ class DescribeEnvironmentsResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $TotalCount 命名空间记录数。
-     * @param array $EnvironmentSet 命名空间集合数组。
+     * @param Cluster $ClusterSet 集群的详细信息
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,17 +54,9 @@ class DescribeEnvironmentsResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
-            $this->TotalCount = $param["TotalCount"];
-        }
-
-        if (array_key_exists("EnvironmentSet",$param) and $param["EnvironmentSet"] !== null) {
-            $this->EnvironmentSet = [];
-            foreach ($param["EnvironmentSet"] as $key => $value){
-                $obj = new Environment();
-                $obj->deserialize($value);
-                array_push($this->EnvironmentSet, $obj);
-            }
+        if (array_key_exists("ClusterSet",$param) and $param["ClusterSet"] !== null) {
+            $this->ClusterSet = new Cluster();
+            $this->ClusterSet->deserialize($param["ClusterSet"]);
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

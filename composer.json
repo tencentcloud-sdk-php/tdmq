@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "tencentcloud/common": "3.0.896"
+        "tencentcloud/common": "3.0.897"
     },
     "autoload": {
         "psr-4": {

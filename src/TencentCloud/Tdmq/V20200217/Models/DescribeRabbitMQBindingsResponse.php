@@ -18,26 +18,32 @@ namespace TencentCloud\Tdmq\V20200217\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeRocketMQMsgTrace返回参数结构体
+ * DescribeRabbitMQBindings返回参数结构体
  *
- * @method array getResult() 获取轨迹详情列表
- * @method void setResult(array $Result) 设置轨迹详情列表
- * @method string getShowTopicName() 获取消息轨迹页展示的topic名称
- * @method void setShowTopicName(string $ShowTopicName) 设置消息轨迹页展示的topic名称
+ * @method array getBindingInfoList() 获取路由关系列表
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setBindingInfoList(array $BindingInfoList) 设置路由关系列表
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getTotalCount() 获取数量
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setTotalCount(integer $TotalCount) 设置数量
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeRocketMQMsgTraceResponse extends AbstractModel
+class DescribeRabbitMQBindingsResponse extends AbstractModel
 {
     /**
-     * @var array 轨迹详情列表
+     * @var array 路由关系列表
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Result;
+    public $BindingInfoList;
 
     /**
-     * @var string 消息轨迹页展示的topic名称
+     * @var integer 数量
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $ShowTopicName;
+    public $TotalCount;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +51,10 @@ class DescribeRocketMQMsgTraceResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $Result 轨迹详情列表
-     * @param string $ShowTopicName 消息轨迹页展示的topic名称
+     * @param array $BindingInfoList 路由关系列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $TotalCount 数量
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,17 +70,17 @@ class DescribeRocketMQMsgTraceResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Result",$param) and $param["Result"] !== null) {
-            $this->Result = [];
-            foreach ($param["Result"] as $key => $value){
-                $obj = new TraceResult();
+        if (array_key_exists("BindingInfoList",$param) and $param["BindingInfoList"] !== null) {
+            $this->BindingInfoList = [];
+            foreach ($param["BindingInfoList"] as $key => $value){
+                $obj = new RabbitMQBindingListInfo();
                 $obj->deserialize($value);
-                array_push($this->Result, $obj);
+                array_push($this->BindingInfoList, $obj);
             }
         }
 
-        if (array_key_exists("ShowTopicName",$param) and $param["ShowTopicName"] !== null) {
-            $this->ShowTopicName = $param["ShowTopicName"];
+        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+            $this->TotalCount = $param["TotalCount"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

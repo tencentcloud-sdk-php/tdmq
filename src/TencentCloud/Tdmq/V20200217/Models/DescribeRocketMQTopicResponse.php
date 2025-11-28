@@ -18,26 +18,19 @@ namespace TencentCloud\Tdmq\V20200217\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeRocketMQSourceClusterTopicList返回参数结构体
+ * DescribeRocketMQTopic返回参数结构体
  *
- * @method array getTopics() 获取topic层列表
- * @method void setTopics(array $Topics) 设置topic层列表
- * @method integer getTotalCount() 获取总条数
- * @method void setTotalCount(integer $TotalCount) 设置总条数
+ * @method RocketMQTopic getTopic() 获取Topic详情
+ * @method void setTopic(RocketMQTopic $Topic) 设置Topic详情
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeRocketMQSourceClusterTopicListResponse extends AbstractModel
+class DescribeRocketMQTopicResponse extends AbstractModel
 {
     /**
-     * @var array topic层列表
+     * @var RocketMQTopic Topic详情
      */
-    public $Topics;
-
-    /**
-     * @var integer 总条数
-     */
-    public $TotalCount;
+    public $Topic;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +38,7 @@ class DescribeRocketMQSourceClusterTopicListResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $Topics topic层列表
-     * @param integer $TotalCount 总条数
+     * @param RocketMQTopic $Topic Topic详情
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,17 +54,9 @@ class DescribeRocketMQSourceClusterTopicListResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Topics",$param) and $param["Topics"] !== null) {
-            $this->Topics = [];
-            foreach ($param["Topics"] as $key => $value){
-                $obj = new RocketMQTopicConfigOutput();
-                $obj->deserialize($value);
-                array_push($this->Topics, $obj);
-            }
-        }
-
-        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
-            $this->TotalCount = $param["TotalCount"];
+        if (array_key_exists("Topic",$param) and $param["Topic"] !== null) {
+            $this->Topic = new RocketMQTopic();
+            $this->Topic->deserialize($param["Topic"]);
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
